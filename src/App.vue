@@ -1,37 +1,36 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
-  </div>
+    <div id="app">
+        <Nav></Nav>
+        <Content></Content>
+    </div>
+
 </template>
 
 <script>
+import Nav from './component/nav.vue'
+import Content from './component/content.vue'
 export default {
-  name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
+    name: 'app',
+    data () {
+        return {
+            msg: '办公装修'
+        }
+    },
+    components: { Nav,Content }
 }
 </script>
 
 <style lang="sass?indentedSyntax">
-$red: #F00
-a
-  color: $red
+@import './sass/mixin.sass'
+#app
+    +REM(padding-top,32.5px)
+    +REM(padding-left,16px)
+    +REM(padding-right,16px)
+    +REM(padding-bottom,48px)
+    width: ((375px-(16px)*2))/37.5px*1rem
+    +REM(height,1255.5px)
+    background:
+        image: url(./assets/bGSeviceBanner1@2x.png)
+        size: 100% auto
+        repeat: no-repeat
 </style>

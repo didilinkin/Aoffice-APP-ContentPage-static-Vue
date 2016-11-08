@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
+    publicPath: './dist/',
     filename: 'build.js'
   },
   module: {
@@ -28,12 +28,12 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file',
         options: {
-          name: '[name].[ext]?[hash]'
+          name: './[name].[ext]?[hash]'
         }
       }
     ]
   },
-  
+
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue'

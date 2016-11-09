@@ -16,3 +16,11 @@ npm run build
 ```
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+***
+
+## 测试机器: iPhone 6s
+
+## 测试浏览器: Chrome/Safari/FireFox/微信
+
+## 测试结果: 无问题

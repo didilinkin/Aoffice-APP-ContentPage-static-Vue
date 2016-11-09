@@ -5,10 +5,16 @@
     display: inline-block
     *display: inline
     *zoom: 1
+%block
+    display: block
 %flexCenter
     display: flex
     align-items: center
     justify-content: center
+=boxShadow($h-shadow,$v-shadow,$blur,$shadowColor)
+    -moz-box-shadow: $h-shadow $v-shadow $blur $shadowColor
+    -webkit-box-shadow: $h-shadow $v-shadow $blur $shadowColor
+    box-shadow: $h-shadow $v-shadow $blur $shadowColor
 =REM($attr,$size)
     #{$attr}: ($size/37.5px)*1rem
 // 跨浏览器设置透明度

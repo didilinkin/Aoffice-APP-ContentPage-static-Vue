@@ -1,11 +1,11 @@
 <template>
     <div id="nav">
         <span class="return">
-            <img src="../assets/return@2x.png">
+            <img :src="returnBtn">
         </span>
         <h1>{{msg}}</h1>
         <span class="iconDialogue">
-            <img src="../assets/iconDialogue@2x.png">
+            <img :src="iconDialogueBtn">
         </span>
     </div>
 </template>
@@ -15,7 +15,9 @@ export default {
     name: 'nav',
     data () {
         return {
-            msg: '办公装修'
+            msg: '办公装修',
+            returnBtn: require('../assets/return@2x.png'),
+            iconDialogueBtn: require('../assets/iconDialogue@2x.png')
         }
     }
 }

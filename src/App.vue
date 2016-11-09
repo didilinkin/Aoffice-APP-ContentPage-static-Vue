@@ -1,7 +1,7 @@
 <template>
     <div id="app">
-        <Nav></Nav>
-        <Content></Content>
+        <Nav />
+        <Content />
     </div>
 
 </template>
@@ -28,7 +28,6 @@ export default {
     +REM(padding-right,16px)
     +REM(padding-bottom,48px)
     width: ((375px-(16px)*2))/37.5px*1rem
-    +REM(height,1255.5px)
     background:
         image: url(./assets/bGSeviceBanner1@2x.png)
         size: 100% auto

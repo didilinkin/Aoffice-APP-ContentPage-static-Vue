@@ -4,16 +4,8 @@
         <aboutUs class="modules">
             <h2><b>关于我们</b></h2>
             <string />
-            <p>
-                A+OFFICE致力于给我们的客户提供除租赁服务以外的其他相关服务，
-                即与本土装修团队合作，为我们的客户打造舒适专业的办公环境；
-            </p>
-            <p> 凡A+OFFICE的会员采用本平台所提供的装修团队，即可享受相应的装修折扣; </p>
-            <p> 凡通过A+OFFICE租赁办公室的客户再使用装修服务时还可享受其他折扣。 </p>
-            <p>
-                凡A+OFFICE的会员使用装修服务后，在我平台采购办公家具可享受
-                <red>{{ discount }}</red>折。
-            </p>
+            <!-- 关于我们-文字内容 -->
+            <aboutus-content></aboutus-content>
         </aboutUs>
 
         <!-- 装修套餐 -->
@@ -85,6 +77,8 @@
 </template>
 
 <script>
+import aboutuscontent from './aboutus-content.vue'
+
 export default {
     name: 'textcontent',
     data () {
@@ -119,8 +113,16 @@ export default {
             ],
             decorationFlow: require('../assets/decorationFlow.png')
         }
+    },
+    components: {
+        // <aboutus-content> 将只在父模板可用
+        'aboutus-content': aboutuscontent
     }
-}
+};
+
+
+
+
 </script>
 <style lang="sass?indentedSyntax">
 @import '../sass/mixin.sass'
@@ -168,14 +170,6 @@ $dashed-color: rgb(187,197,219)
         dashed:last-child
             +REM(margin-bottom,0px)
 
-/* 关于我们-模块 */
-aboutUs p
-        +REM(padding-top,14.8px)
-        @extend %text-font
-        +REM(line-height,21px)
-        red
-            font-weight: bold
-            color: red
 
 /* 套餐列表-模块 */
 =setlistAuto($width)

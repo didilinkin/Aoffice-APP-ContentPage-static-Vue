@@ -124,16 +124,22 @@ export default {
 </script>
 <style lang="sass?indentedSyntax">
 @import '../sass/mixin.sass'
+/* 模块内通用变量 */
 $title-size: 15px
 $title-color: rgb(115,125,145)
+%title-font
+    +REM(font-size,15px)
+    color: rgb(115,125,145)
 $text-size: 14px
 $text-color: rgb(143,153,175)
+%text-font
+    +REM(font-size,14px)
+    color: rgb(143,153,175)
 $dashed-color: rgb(187,197,219)
 
 #textcontent
     +REM(padding-top,16.5px)
     +REM(padding-right,16px)
-    /*+REM(margin-bottom,30.5px)*/
     +REM(margin-bottom,15.5px)
     +REM(padding-left,16px)
     +boxShadow(0px,2px,20px,rgba(143,153,175,.5))
@@ -142,8 +148,8 @@ $dashed-color: rgb(187,197,219)
         display: block
         +REM(padding-bottom,25px)
         h2
-            +REM(font-size,$title-size)
-            color: $title-color
+            @extend %title-font
+        /* 实线 */
         string
             display: block
             +REM(height,1px)
@@ -151,71 +157,72 @@ $dashed-color: rgb(187,197,219)
             +REM(border-bottom-width,1px)
             +REM(margin-top,14.8px)
             +REM(margin-bottom,14.8px)
-    aboutUs p
-            +REM(padding-top,14.8px)
-            +REM(font-size,$text-size)
-            +REM(line-height,21px)
-            color: $text-color
-            red
-                font-weight: bold
-                color: red
-/* 套餐列表 */
+        /* 虚线 */
+        dashed
+            display: block
+            +REM(height,1px)
+            border-top: 1px dashed $dashed-color
+            +REM(border-bottom-width,1px)
+            +REM(margin-top,17px)
+            +REM(margin-bottom,17px)
+        dashed:last-child
+            +REM(margin-bottom,0px)
+
+/* 关于我们-模块 */
+aboutUs p
+        +REM(padding-top,14.8px)
+        @extend %text-font
+        +REM(line-height,21px)
+        red
+            font-weight: bold
+            color: red
+
+/* 套餐列表-模块 */
 =setlistAuto($width)
     float: left
     +REM(width,$width)
     height: 100%
-#setlist
-    li
-        +REM(height,42px)
-        img
-            +setlistAuto(42px)
-        listTitle
-            display: flex
-            align-items: center
-            +setlistAuto(126.5px-10.5px)
-            +REM(padding-left,10.5px)
-        /* 标题字体样式 */
-        listTitle.font
-            +REM(font-size,$title-size)
-            +REM(line-height,21px)
-            color: $title-color
-        listContent
-            @extend %flexCenter
-            +setlistAuto(142.5px)
-        /* 列表内容字体样式 */
-        listContent.font
-            +REM(font-size,12px)
-            +REM(line-height,18px)
-            color: $text-color
-    /* 虚线 */
-    dashed
-        display: block
-        +REM(height,1px)
-        border-top: 1px dashed $dashed-color
-        +REM(border-bottom-width,1px)
-        +REM(margin-top,17px)
-        +REM(margin-bottom,17px)
-    dashed:last-child
-        +REM(margin-bottom,0px)
-/* 装修流程 */
+#setlist li
+    +REM(height,42px)
+    img
+        +setlistAuto(42px)
+    listTitle
+        display: flex
+        align-items: center
+        +setlistAuto(126.5px-10.5px)
+        +REM(padding-left,10.5px)
+    /* 标题字体样式 */
+    listTitle.font
+        @extend %title-font
+        +REM(line-height,21px)
+    listContent
+        @extend %flexCenter
+        +setlistAuto(142.5px)
+    /* 列表内容字体样式 */
+    listContent.font
+        +REM(font-size,12px)
+        +REM(line-height,18px)
+        color: $text-color
+
+/* 装修流程-模块 */
 decorationFlow img
     width: 100%
-/* 使用说明 */
-explain
-    li
-        overflow: hidden
-        display: block
-        NO
-            @extend %dib
-            float: left
-            +REM(width,24px)
-        p
-            @extend %dib
-            float: right
-            +REM(width,311px-25px)
-        /* 说明文字-字体样式 */
-        .explainFont
-            +REM(font-size,14px)
-            +REM(line-height,23px)
-            color: $text-color
+
+/* 使用说明-模块 */
+explain li
+    overflow: hidden
+    display: block
+    NO
+        @extend %dib
+        float: left
+        +REM(width,24px)
+    p
+        @extend %dib
+        float: right
+        +REM(width,311px-25px)
+    /* 说明文字-字体样式 */
+    .explainFont
+        +REM(font-size,14px)
+        +REM(line-height,23px)
+        color: $text-color
 </style>

@@ -11,11 +11,6 @@ import AppNav from './component/nav.vue'
 import AppContent from './component/content.vue'
 export default {
     name: 'app',
-    data () {
-        return {
-            msg: '办公装修'
-        }
-    },
     components: { AppNav,AppContent }
 }
 </script>

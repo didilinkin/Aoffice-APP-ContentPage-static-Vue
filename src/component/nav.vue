@@ -1,10 +1,10 @@
 <template>
     <div id="nav">
-        <span class="return" v-on:click="returnBtn">
+        <span class="return" onClick="javascript:returnBtn()">
             <img :src="returnImg">
         </span>
         <h1>{{msg}}</h1>
-        <span class="iconDialogue" v-on:click="dialogue">
+        <span class="iconDialogue" onClick="javascript:dialogueBtn()">
             <img :src="iconDialogueImg">
         </span>
     </div>
@@ -17,9 +17,7 @@ export default {
         return {
             msg: '办公装修',
             returnImg: require('../assets/return@2x.png'),
-            iconDialogueImg: require('../assets/iconDialogue@2x.png'),
-            returnBtn: function () { alert('returnBtn') },
-            dialogue: function(){ alert('dialogue') }
+            iconDialogueImg: require('../assets/iconDialogue@2x.png')
         }
     },
 }
@@ -27,23 +25,22 @@ export default {
 
 <style lang="sass?indentedSyntax">
 @import '../sass/mixin.sass'
+%spanImg
+    position: absolute
+    img
+        +REM(width,19.5px)
 #nav
     position: relative
     extend %flexCenter
     text-align: center
     +REM(margin-top,20px)
-    /*+REM(margin-bottom,17px)*/
     +REM(height,25px)
     span.return
-        position: absolute
+        @extend %spanImg
         left: 0
-        img
-            +REM(width,19.5px)
     span.iconDialogue
-        position: absolute
+        @extend %spanImg
         right: 0
-        img
-            +REM(width,19.5px)
     h1
         @extend %dib
         +REM(font-size,16px)

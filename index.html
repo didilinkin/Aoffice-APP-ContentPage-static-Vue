@@ -16,10 +16,22 @@
         <script src="./dist/build.js"></script>
         <script type="text/javascript">
             function returnBtn() {
-                AndroidFunction.showBack();
+                if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+                    alert('IOS');
+                } else if (/(Android)/i.test(navigator.userAgent)) {
+                    AndroidFunction.showBack();
+                } else {
+                    alert('Windows');
+                };
             }
             function dialogueBtn(){
-                AndroidFunction.showChat();
+                if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+                    alert('IOS');
+                } else if (/(Android)/i.test(navigator.userAgent)) {
+                    AndroidFunction.showChat();
+                } else {
+                    alert('Windows');
+                };
             }
         </script>
     </body>

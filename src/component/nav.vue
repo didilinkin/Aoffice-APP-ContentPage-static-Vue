@@ -1,11 +1,11 @@
 <template>
     <div id="nav">
-        <span class="return">
-            <img :src="returnBtn">
+        <span class="return" v-on:click="returnBtn">
+            <img :src="returnImg">
         </span>
         <h1>{{msg}}</h1>
-        <span class="iconDialogue">
-            <img :src="iconDialogueBtn">
+        <span class="iconDialogue" v-on:click="dialogue">
+            <img :src="iconDialogueImg">
         </span>
     </div>
 </template>
@@ -16,10 +16,12 @@ export default {
     data () {
         return {
             msg: '办公装修',
-            returnBtn: require('../assets/return@2x.png'),
-            iconDialogueBtn: require('../assets/iconDialogue@2x.png')
+            returnImg: require('../assets/return@2x.png'),
+            iconDialogueImg: require('../assets/iconDialogue@2x.png'),
+            returnBtn: function () { alert('returnBtn') },
+            dialogue: function(){ alert('dialogue') }
         }
-    }
+    },
 }
 </script>
 
@@ -29,13 +31,19 @@ export default {
     position: relative
     extend %flexCenter
     text-align: center
+    +REM(margin-top,20px)
+    /*+REM(margin-bottom,17px)*/
     +REM(height,25px)
     span.return
         position: absolute
         left: 0
+        img
+            +REM(width,19.5px)
     span.iconDialogue
         position: absolute
         right: 0
+        img
+            +REM(width,19.5px)
     h1
         @extend %dib
         +REM(font-size,16px)

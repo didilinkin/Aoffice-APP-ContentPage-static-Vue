@@ -122,7 +122,6 @@ export default {
     }
 }
 </script>
-
 <style lang="sass?indentedSyntax">
 @import '../sass/mixin.sass'
 $title-size: 15px
@@ -134,7 +133,8 @@ $dashed-color: rgb(187,197,219)
 #textcontent
     +REM(padding-top,16.5px)
     +REM(padding-right,16px)
-    +REM(margin-bottom,30.5px)
+    /*+REM(margin-bottom,30.5px)*/
+    +REM(margin-bottom,15.5px)
     +REM(padding-left,16px)
     +boxShadow(0px,2px,20px,rgba(143,153,175,.5))
     /* 4个文字内容模块公用样式 */

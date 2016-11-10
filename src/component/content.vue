@@ -21,7 +21,8 @@ export default {
 <style lang="sass?indentedSyntax">
 @import '../sass/mixin.sass'
 #content
-    margin-top: ((103.5px-32.5px-25px)/37.5px)*1rem
+    /*margin-top: ((103.5px-32.5px-25px)/37.5px)*1rem*/
+    +REM(margin-top,25px)
     >img
         width: 100%
         @extend %block

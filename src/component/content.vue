@@ -20,6 +20,7 @@ export default {
 
 <style lang="sass?indentedSyntax">
 @import '../sass/mixin.sass'
+
 #content
     +REM(margin-top,25px)
     >img

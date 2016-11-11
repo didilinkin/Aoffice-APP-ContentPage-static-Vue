@@ -55,18 +55,6 @@ export default {
 </script>
 <style lang="sass?indentedSyntax" scoped>
 @import '../sass/mixin.sass'
-/* 模块内通用变量 */
-$title-size: 15px
-$title-color: rgb(115,125,145)
-%title-font
-    +REM(font-size,15px)
-    color: rgb(115,125,145)
-$text-size: 14px
-$text-color: rgb(143,153,175)
-%text-font
-    +REM(font-size,14px)
-    color: rgb(143,153,175)
-$dashed-color: rgb(187,197,219)
 
 #textcontent
     +REM(padding-top,16.5px)

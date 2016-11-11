@@ -1,41 +1,20 @@
 <template>
     <ul id="setlist">
-        <li>
-            <img :src="setList[0].img"/>
-            <listTitle class="font"><b>{{ setList[0].title }}</b></listTitle>
-            <listContent class="font">{{ setList[0].content }}</listContent>
-        </li>
-        <dashed />
-        <li>
-            <img :src="setList[1].img"/>
-            <listTitle class="font"><b>{{ setList[1].title }}</b></listTitle>
-            <listContent class="font">{{ setList[1].content }}</listContent>
-        </li>
-        <dashed />
-        <li>
-            <img :src="setList[2].img"/>
-            <listTitle class="font"><b>{{ setList[2].title }}</b></listTitle>
-            <listContent class="font">{{ setList[2].content }}</listContent>
-        </li>
-        <dashed />
-        <li>
-            <img :src="setList[3].img"/>
-            <listTitle class="font"><b>{{ setList[3].title }}</b></listTitle>
-            <listContent class="font">{{ setList[3].content }}</listContent>
-        </li>
-        <dashed />
-        <li>
-            <img :src="setList[4].img"/>
-            <listTitle class="font"><b>{{ setList[4].title }}</b></listTitle>
-            <listContent class="font">{{ setList[4].content }}</listContent>
-        </li>
-        <dashed />
+        <!--因需循环虚线,所以外侧需要再套一个div-->
+        <surround v-for="item in setList">
+            <li>
+                <img v-bind:src="item.img">
+                <listTitle class="font"><b>{{ item.title }}</b></listTitle>
+                <listContent class="font">{{ item.content }}</listContent>
+            </li>
+            <dashed />
+        </surround>
     </ul>
 </template>
 
 <script>
 export default {
-    name: 'textcontent',
+    el: '#setlist',
     data () {
         return {
             setList: [
@@ -70,21 +49,8 @@ export default {
 };
 </script>
 
-<style lang="sass?indentedSyntax" scoped>
+<style lang="sass?indentedSyntax">
 @import '../sass/mixin.sass'
-
-/* 模块内通用变量 */
-$title-size: 15px
-$title-color: rgb(115,125,145)
-%title-font
-    +REM(font-size,15px)
-    color: rgb(115,125,145)
-$text-size: 14px
-$text-color: rgb(143,153,175)
-%text-font
-    +REM(font-size,14px)
-    color: rgb(143,153,175)
-$dashed-color: rgb(187,197,219)
 
 /* 套餐列表-模块 */
 =setlistAuto($width)
@@ -113,13 +79,14 @@ $dashed-color: rgb(187,197,219)
         +REM(line-height,18px)
         color: $text-color
 /* 虚线 */
-dashed
+surround dashed
     display: block
     +REM(height,1px)
     border-top: 1px dashed $dashed-color
     +REM(border-bottom-width,1px)
     +REM(margin-top,17px)
     +REM(margin-bottom,17px)
-dashed:last-child
-    +REM(margin-bottom,0px)
+surround
+    &:last-child dashed
+        +REM(margin-bottom,0px)
 </style>

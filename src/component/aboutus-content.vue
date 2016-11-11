@@ -17,7 +17,7 @@
 
 </script>
 
-<style lang="sass?indentedSyntax">
+<style lang="sass?indentedSyntax" scoped>
 @import '../sass/mixin.sass'
 
 /* 模块内通用变量 */
